@@ -169,6 +169,16 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   background: var(--warm-bg-alt);
   transform: translateY(-2px);
 }
+.campaign-banner {
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+.campaign-banner:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 32px rgba(232,131,107,0.5) !important;
+}
+.campaign-banner:active {
+  transform: translateY(-1px) !important;
+}
 
 /* ===== FEATURES STRIP ===== */
 .features-strip {
@@ -485,9 +495,9 @@ footer {
       <span></span><span></span><span></span>
     </button>
     <div class="nav-links" id="navLinks">
-      <a href="javascript:void(0)" onclick="scrollTo('service')">サービス</a>
-      <a href="javascript:void(0)" onclick="scrollTo('flow')">ご利用の流れ</a>
-      <a href="javascript:void(0)" onclick="scrollTo('pricing')">料金</a>
+      <a href="javascript:void(0)" onclick="smoothScrollTo('service')">サービス</a>
+      <a href="javascript:void(0)" onclick="smoothScrollTo('flow')">ご利用の流れ</a>
+      <a href="javascript:void(0)" onclick="smoothScrollTo('pricing')">料金</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3ZiwHXcDQriJgHRy5U0QabWpdIR-HN3Z3i_SNWlMf1f5vjg/viewform?usp=header" class="nav-cta" onclick="window.open(this.href);return false;">無料相談する</a>
     </div>
   </div>
@@ -502,12 +512,19 @@ footer {
       <span class="highlight">あなたは本業に集中。</span>
     </h1>
     <p>
-      経理・請求書・データ入力…<br>
-      めんどうなバックオフィス業務、ぜんぶ「縁結び事務work」にお任せください。
+      経理・請求書・データ入力など、<br>
+      面倒な事務作業をぜんぶお任せください。
     </p>
+    <!-- 無料体験バナー（クリックでキャンペーンページに飛ぶ） -->
+    <a id="campaign-banner" href="campaign.html" class="campaign-banner" style="display: block; text-decoration: none; color: white; background: linear-gradient(135deg, #FF8C61, #E8836B); border-radius: 14px; padding: 16px 24px; margin-bottom: 24px; max-width: 420px; margin-left: auto; margin-right: auto; box-shadow: 0 4px 20px rgba(232,131,107,0.35); animation: fadeSlideUp 0.6s ease-out 0.25s both; cursor: pointer;">
+      <div style="font-size: 0.93rem; font-weight: 500; letter-spacing: 0.06em; margin-bottom: 8px;">🎁 今だけ！無料体験キャンペーン</div>
+      <div style="font-size: 0.84rem; opacity: 0.93; line-height: 1.7; font-weight: 400;">
+        先着 <span style="font-size: 1.1rem; font-weight: 500; background: rgba(255,255,255,0.2); padding: 1px 6px; border-radius: 4px;">3名様</span> 限定で <span style="font-size: 1.1rem; font-weight: 500; background: rgba(255,255,255,0.2); padding: 1px 6px; border-radius: 4px;">5時間分</span> 無料体験できます
+      </div>
+    </a>
     <div class="hero-buttons">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3ZiwHXcDQriJgHRy5U0QabWpdIR-HN3Z3i_SNWlMf1f5vjg/viewform?usp=header" class="btn btn-primary" onclick="window.open(this.href);return false;">まずは無料で相談する →</a>
-      <a href="javascript:void(0)" onclick="scrollTo('service')" class="btn btn-secondary">サービスを見る</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3ZiwHXcDQriJgHRy5U0QabWpdIR-HN3Z3i_SNWlMf1f5vjg/viewform?usp=header" class="btn btn-primary" onclick="window.open(this.href);return false;" style="font-size: 1.05rem;">無料相談フォームを開く →</a>
+      <a href="javascript:void(0)" onclick="smoothScrollTo('service')" class="btn btn-secondary">サービスを見る</a>
     </div>
   </div>
 </section>
@@ -517,18 +534,18 @@ footer {
   <div class="features-grid">
     <div class="feature-card animate-on-scroll">
       <div class="feature-icon">⏰</div>
-      <h3>月20時間の節約</h3>
-      <p>事務作業から解放されて、本業やプライベートの時間を取り戻しましょう。</p>
+      <h3>時間の節約</h3>
+      <p>事務作業から解放されて、本業やプライベートに集中できます。</p>
     </div>
     <div class="feature-card animate-on-scroll">
       <div class="feature-icon">💰</div>
-      <h3>コストを抑えて安心</h3>
-      <p>正社員を雇うより圧倒的に低コスト。必要な分だけご利用いただけます。</p>
+      <h3>低コストで始められる</h3>
+      <p>人を雇うより圧倒的にお手頃。必要な分だけご利用いただけます。</p>
     </div>
     <div class="feature-card animate-on-scroll">
       <div class="feature-icon">🤝</div>
-      <h3>丁寧なサポート</h3>
-      <p>専任スタッフが担当。LINEやチャットで気軽にやりとりできます。</p>
+      <h3>気軽にやりとり</h3>
+      <p>LINEやチャットでいつでも連絡OK。丁寧にサポートします。</p>
     </div>
   </div>
 </div>
@@ -537,14 +554,14 @@ footer {
 <section id="service">
   <div class="section-header">
     <span class="section-label">Service</span>
-    <h2>まるっとお任せ、<br>バックオフィス代行</h2>
-    <p>「これも頼めるの？」──はい、お任せください。<br>あなたの事務まわりをトータルでサポートします。</p>
+    <h2>バックオフィス業務、<br>まるっと代行します</h2>
+    <p>「こんなことも頼めるの？」はい、大丈夫です。<br>事務まわりをトータルでサポートします。</p>
   </div>
   <div class="service-cards">
     <div class="service-card animate-on-scroll">
       <div class="service-emoji">📊</div>
       <h3>経理・記帳代行</h3>
-      <p>日々の帳簿づけから月次の経理処理まで、正確にお任せください。確定申告の準備もサポートします。</p>
+      <p>毎日の帳簿づけや月次の経理処理をお任せいただけます。確定申告の準備もサポートします。</p>
       <div class="service-tags">
         <span class="service-tag">仕訳入力</span>
         <span class="service-tag">帳簿管理</span>
@@ -554,7 +571,7 @@ footer {
     <div class="service-card animate-on-scroll">
       <div class="service-emoji">📄</div>
       <h3>請求書・見積書作成</h3>
-      <p>請求書や見積書の作成・送付・管理をまとめて代行。入金確認やリマインドもお手伝いします。</p>
+      <p>請求書や見積書の作成から送付・管理まで代行します。入金確認もお手伝いします。</p>
       <div class="service-tags">
         <span class="service-tag">請求書発行</span>
         <span class="service-tag">見積書作成</span>
@@ -564,7 +581,7 @@ footer {
     <div class="service-card animate-on-scroll">
       <div class="service-emoji">⌨️</div>
       <h3>データ入力・事務作業</h3>
-      <p>顧客リストの整理、名刺データ化、各種書類の作成など、細かい事務作業を代行します。</p>
+      <p>顧客リストの整理や書類作成など、こまごました作業をまとめてお引き受けします。</p>
       <div class="service-tags">
         <span class="service-tag">データ入力</span>
         <span class="service-tag">リスト整理</span>
@@ -573,8 +590,8 @@ footer {
     </div>
     <div class="service-card animate-on-scroll">
       <div class="service-emoji">📦</div>
-      <h3>その他バックオフィス</h3>
-      <p>「こんなことも頼める？」大歓迎です。メール対応、スケジュール管理など、柔軟に対応します。</p>
+      <h3>その他なんでもご相談を</h3>
+      <p>メール対応やスケジュール管理など、「ちょっと誰かに頼みたい」にお応えします。</p>
       <div class="service-tags">
         <span class="service-tag">メール対応</span>
         <span class="service-tag">スケジュール管理</span>
@@ -589,35 +606,35 @@ footer {
   <div class="section-header">
     <span class="section-label">Flow</span>
     <h2>ご利用の流れ</h2>
-    <p>お問い合わせから最短3日でスタート。<br>まずはお気軽にご相談ください。</p>
+    <p>お問い合わせから最短3日で開始できます。<br>まずはお気軽にご相談ください。</p>
   </div>
   <div class="flow-steps">
     <div class="flow-step animate-on-scroll">
       <div class="flow-number">1</div>
       <div class="flow-content">
         <h3>無料相談・ヒアリング</h3>
-        <p>まずはお困りごとをお聞かせください。LINE・メール・Zoomなどお好きな方法でOKです。</p>
+        <p>まずはお困りごとをお聞かせください。LINE・メール・Zoomなど、ご都合のよい方法でお話しできます。</p>
       </div>
     </div>
     <div class="flow-step animate-on-scroll">
       <div class="flow-number">2</div>
       <div class="flow-content">
-        <h3>お見積り・プランご提案</h3>
-        <p>ヒアリング内容をもとに、最適なプランと料金をご提案します。ご不明点はなんでもどうぞ。</p>
+        <h3>お見積り・プランのご提案</h3>
+        <p>お話を伺ったうえで、最適なプランと料金をご提案します。気になる点はお気軽にご質問ください。</p>
       </div>
     </div>
     <div class="flow-step animate-on-scroll">
       <div class="flow-number">3</div>
       <div class="flow-content">
-        <h3>ご契約・スタート</h3>
-        <p>内容にご納得いただけましたら、契約後すぐにサポート開始。専任スタッフが担当します。</p>
+        <h3>ご契約・サポート開始</h3>
+        <p>内容にご納得いただけましたら契約を結び、すぐにサポートを開始します。</p>
       </div>
     </div>
     <div class="flow-step animate-on-scroll">
       <div class="flow-number">4</div>
       <div class="flow-content">
         <h3>定期フォローアップ</h3>
-        <p>毎月の振り返りで、業務の改善やご要望をお伺い。長くお付き合いできる関係を大切にします。</p>
+        <p>毎月の振り返りで業務の改善やご要望をお伺いします。長くお付き合いできる関係を大切にしています。</p>
       </div>
     </div>
   </div>
@@ -627,8 +644,8 @@ footer {
 <section id="pricing">
   <div class="section-header">
     <span class="section-label">Pricing</span>
-    <h2>わかりやすい料金プラン</h2>
-    <p>必要な分だけ、無駄なく。<br>まずはライトプランからお試しも大歓迎です。</p>
+    <h2>シンプルな料金プラン</h2>
+    <p>必要な分だけ、ムダなく利用できます。<br>まずはライトプランからお試しください。</p>
   </div>
   <div class="pricing-cards" style="grid-template-columns: repeat(2, 1fr); max-width: 640px;">
     <div class="pricing-card animate-on-scroll">
@@ -673,13 +690,13 @@ footer {
     <div class="about-text animate-on-scroll">
       <h3>「縁」を大切に、<br>あなたのビジネスを支えます</h3>
       <p>
-        縁結び事務workは、個人事業主やフリーランスの方が本業に集中できるよう、
-        バックオフィス業務を総合的にサポートするサービスです。
+        縁結び事務workは、個人事業主やフリーランスの方が
+        本業に集中できるよう、事務まわりをトータルでサポートするサービスです。
       </p>
       <p>
-        「事務作業が苦手」「経理に時間を取られて本業がおろそかに」──
-        そんなお悩みを、まるっと解決します。
-        島根を拠点に、オンラインで全国対応しています。
+        「事務作業に手が回らない」「経理が苦手で後回しにしてしまう」──
+        そんなお悩みを、私たちがまるっと引き受けます。
+        島根を拠点に、オンラインで全国どこからでもご利用いただけます。
       </p>
       <div class="about-values">
         <span class="about-value">🤝 丁寧な対応</span>
@@ -695,13 +712,13 @@ footer {
 <section id="contact">
   <div class="section-header">
     <span class="section-label">Contact</span>
-    <h2>まずは無料相談から</h2>
-    <p>「ちょっと聞いてみたい」だけでもOK。<br>お気軽にご連絡ください。</p>
+    <h2>まずは無料でご相談ください</h2>
+    <p>「ちょっと聞いてみたい」だけでも大歓迎です。<br>お気軽にお問い合わせください。</p>
   </div>
   <div class="contact-wrap animate-on-scroll" style="text-align: center; padding: 48px 40px;">
     <div style="font-size: 3rem; margin-bottom: 16px;">💬</div>
-    <p style="font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 8px;">お問い合わせフォームはこちら</p>
-    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 28px;">ご相談内容やご要望をお気軽にお書きください。<br>24時間以内にご返信いたします。</p>
+    <p style="font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 8px;">お問い合わせはこちらから</p>
+    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 28px;">ご相談内容やご要望をお気軽にお書きください。<br>折り返しご連絡いたします。</p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3ZiwHXcDQriJgHRy5U0QabWpdIR-HN3Z3i_SNWlMf1f5vjg/viewform?usp=header" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 40px;" onclick="window.open(this.href);return false;">無料相談フォームを開く →</a>
   </div>
 </section>
@@ -710,9 +727,9 @@ footer {
 <footer>
   <div class="footer-logo">縁結び事務work</div>
   <div class="footer-links">
-    <a href="javascript:void(0)" onclick="scrollTo('service')">サービス</a>
-    <a href="javascript:void(0)" onclick="scrollTo('flow')">ご利用の流れ</a>
-    <a href="javascript:void(0)" onclick="scrollTo('pricing')">料金</a>
+    <a href="javascript:void(0)" onclick="smoothScrollTo('service')">サービス</a>
+    <a href="javascript:void(0)" onclick="smoothScrollTo('flow')">ご利用の流れ</a>
+    <a href="javascript:void(0)" onclick="smoothScrollTo('pricing')">料金</a>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3ZiwHXcDQriJgHRy5U0QabWpdIR-HN3Z3i_SNWlMf1f5vjg/viewform?usp=header" onclick="window.open(this.href);return false;">お問い合わせ</a>
     <a href="javascript:void(0)" onclick="openPrivacy()">プライバシーポリシー</a>
   </div>
@@ -790,7 +807,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Smooth scroll to section
-function scrollTo(id) {
+function smoothScrollTo(id) {
   var el = document.getElementById(id);
   if (el) {
     var offset = 80;

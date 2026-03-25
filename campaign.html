@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【先着3名限定】5時間無料お試しキャンペーン | 縁結び事務work</title>
+<meta name="description" content="縁結び事務workのサービス開始記念キャンペーン。先着3名様限定で、5時間分の事務作業を無料でお試しいただけます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-bg: #FFF8F5;
+    --color-bg-warm: #FEF0EA;
+    --color-bg-card: #FFFFFF;
+    --color-primary: #E8836B;
+    --color-primary-dark: #D06850;
+    --color-primary-light: #F2A899;
+    --color-accent: #5BA4A4;
+    --color-accent-light: #7EC4C4;
+    --color-red: #D06850;
+    --color-red-light: #FEE8E2;
+    --color-text: #3D2C2C;
+    --color-text-light: #7A6565;
+    --color-border: rgba(232,131,107,0.15);
+    --color-gold: #B8963E;
+    --font-heading: 'Shippori Mincho', serif;
+    --font-body: 'Zen Maru Gothic', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ====== DECORATIVE PATTERN ====== */
+  .pattern-bg {
+    position: relative;
+    overflow: hidden;
+  }
+  .pattern-bg::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(232,131,107,0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(91,164,164,0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ====== NAVIGATION ====== */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(255,248,245,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 100;
+    padding: 0 1.5rem;
+  }
+  .nav-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .nav-logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    font-weight: 900;
+  }
+  .nav-back {
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: opacity 0.2s;
+  }
+  .nav-back:hover { opacity: 0.7; }
+
+  /* ====== HERO ====== */
+  .hero {
+    position: relative;
+    padding: 120px 1.5rem 80px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(232,131,107,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 80%, rgba(91,164,164,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-red-light);
+    color: var(--color-red);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    animation: badgePulse 2s ease-in-out infinite;
+  }
+  @keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+  }
+  .hero-badge-dot {
+    width: 8px; height: 8px;
+    background: var(--color-red);
+    border-radius: 50%;
+    animation: dotBlink 1.5s ease-in-out infinite;
+  }
+  @keyframes dotBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--color-accent);
+    position: relative;
+  }
+  .hero h1 em::after {
+    content: '';
+    position: absolute;
+    bottom: 2px; left: 0; right: 0;
+    height: 3px;
+    background: var(--color-accent-light);
+    border-radius: 2px;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    line-height: 1.9;
+  }
+  .hero-price {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-border);
+    border-radius: 16px;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(61,44,44,0.08);
+  }
+  .hero-price-original {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    text-decoration: line-through;
+  }
+  .hero-price-arrow {
+    font-size: 1.2rem;
+    color: var(--color-primary-light);
+  }
+  .hero-price-free {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-red);
+  }
+
+  /* ====== REMAINING COUNT ====== */
+  .remaining {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .remaining-label {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+  .remaining-slots {
+    display: flex;
+    gap: 0.4rem;
+  }
+  .slot {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .slot-open {
+    background: var(--color-accent);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(232,131,107,0.3);
+  }
+
+  /* ====== CTA BUTTONS ====== */
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    z-index: 1;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2.2rem;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+    min-width: 280px;
+  }
+  .btn-line {
+    background: #06C755;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(6,199,85,0.25);
+  }
+  .btn-line:hover {
+    background: #05B04C;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(6,199,85,0.3);
+  }
+  .btn-form {
+    background: var(--color-bg-card);
+    color: var(--color-primary);
+    border: 2px solid var(--color-border);
+    box-shadow: 0 2px 8px rgba(61,44,44,0.08);
+  }
+  .btn-form:hover {
+    border-color: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(61,44,44,0.12);
+  }
+  .btn-icon { font-size: 1.2rem; }
+  .cta-note {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-top: 0.3rem;
+  }
+
+  /* ====== SECTION COMMON ====== */
+  .section {
+    padding: 80px 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-primary-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+  .section-desc {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin-bottom: 3rem;
+    line-height: 1.9;
+  }
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: var(--color-border);
+    margin: 0 auto 2rem;
+    border-radius: 1px;
+  }
+
+  /* ====== WHY FREE ====== */
+  .why-free-bg {
+    background: var(--color-bg-warm);
+  }
+  .why-card {
+    background: var(--color-bg-card);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 24px rgba(61,44,44,0.06);
+    position: relative;
+    overflow: hidden;
+  }
+  .why-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  }
+  .why-card-quote {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    line-height: 2;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+  .why-card-quote strong {
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+  .why-card-sig {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .why-card-sig-icon {
+    width: 44px; height: 44px;
+    background: var(--color-bg-warm);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+  .why-card-sig-text {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+  }
+  .why-card-sig-name {
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  /* ====== EXAMPLES ====== */
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+  }
+  .example-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .example-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(61,44,44,0.1);
+  }
+  .example-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+  .example-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+  .example-desc {
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  /* ====== FLOW ====== */
+  .flow-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .flow-step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    position: relative;
+  }
+  .flow-step-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .flow-step-num {
+    width: 44px; height: 44px;
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .flow-step-connector {
+    width: 2px;
+    flex: 1;
+    min-height: 40px;
+    background: var(--color-border);
+  }
+  .flow-step:last-child .flow-step-connector { display: none; }
+  .flow-step-content {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    flex: 1;
+  }
+  .flow-step-title {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-text);
+  }
+  .flow-step-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+  .flow-step-time {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    background: var(--color-bg-warm);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+  }
+
+  /* ====== FINAL CTA ====== */
+  .final-cta {
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-accent) 100%);
+    padding: 60px 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 50%, rgba(184,150,62,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .final-cta-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .final-cta h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    color: #fff;
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+  }
+  .final-cta-sub {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  .final-cta .btn-line {
+    box-shadow: 0 4px 20px rgba(6,199,85,0.35);
+  }
+  .final-cta .btn-form {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border-color: rgba(255,255,255,0.25);
+  }
+  .final-cta .btn-form:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.4);
+  }
+  .final-cta .cta-note { color: rgba(255,255,255,0.55); }
+  .final-cta .remaining-label { color: rgba(255,255,255,0.7); }
+
+  /* ====== FOOTER ====== */
+  .footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    border-top: 1px solid var(--color-border);
+  }
+  .footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 640px) {
+    .hero { padding: 100px 1.2rem 60px; }
+    .section { padding: 60px 1.2rem; }
+    .btn { min-width: 100%; }
+    .hero-price { padding: 0.8rem 1.5rem; }
+    .why-card { padding: 2rem 1.5rem; }
+    .example-card { padding: 1.5rem 1.2rem; }
+    .remaining { flex-wrap: wrap; }
+  }
+
+  /* ====== ANIMATIONS ====== */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="https://enmusubi-website-qgri.vercel.app/" class="nav-logo">
+      <span class="nav-logo-icon">縁</span>
+      縁結び事務work
+    </a>
+    <a href="https://enmusubi-website-qgri.vercel.app/" class="nav-back">
+      ← トップに戻る
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero pattern-bg">
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    先着3名様限定キャンペーン
+  </div>
+
+  <h1>まずは<em>無料</em>で<br>体験してみませんか？</h1>
+
+  <p class="hero-sub">
+    事務作業の代行、気になるけど不安……<br>
+    そんな方のために、<strong>5時間分の業務を完全無料</strong>でお試しいただけます。
+  </p>
+
+  <div class="hero-price">
+    <span class="hero-price-original">¥8,000相当</span>
+    <span class="hero-price-arrow">→</span>
+    <span class="hero-price-free">¥0</span>
+  </div>
+
+  <div class="remaining">
+    <span class="remaining-label">残り枠</span>
+    <div class="remaining-slots">
+      <span class="slot slot-open">1</span>
+      <span class="slot slot-open">2</span>
+      <span class="slot slot-open">3</span>
+    </div>
+  </div>
+
+  <div class="cta-group">
+    <a href="https://lin.ee/Z5Im2hz" class="btn btn-line" target="_blank">
+      <span class="btn-icon">💬</span>
+      LINEで無料体験に申し込む
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3ZiwHXcDQriJgHRy5U0QabWpdIR-HN3Z3i_SNWlMf1f5vjg/viewform?usp=header" class="btn btn-form" target="_blank">
+      <span class="btn-icon">📝</span>
+      フォームから申し込む
+    </a>
+    <p class="cta-note">※ 無理な勧誘は一切ありません。お気軽にどうぞ。</p>
+  </div>
+</section>
+
+<!-- WHY FREE -->
+<section class="why-free-bg">
+  <div class="section fade-up">
+    <p class="section-label">Why Free?</p>
+    <h2>なぜ無料なの？<br>正直にお話しします。</h2>
+    <div class="divider"></div>
+
+    <div class="why-card">
+      <p class="why-card-quote">
+        まだ実績がないからこそ、まずは<strong>実際に体験していただくこと</strong>が<br>何よりも大切だと考えています。<br><br>
+        5時間分の業務を無料でお受けするのは、<br><strong>「このサービスには価値がある」と実感していただくため</strong>。<br><br>
+        お試しの結果、「続けてお願いしたい」と思っていただけたら──<br>そのときに、有料プランをご検討いただければ嬉しいです。
+      </p>
+      <div class="why-card-sig">
+        <div class="why-card-sig-icon">🤝</div>
+        <div class="why-card-sig-text">
+          <span class="why-card-sig-name">縁結び事務work</span><br>
+          島根県から、ご縁を大切に。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLES -->
+<section class="section fade-up">
+  <p class="section-label">Examples</p>
+  <h2>たとえば、5時間で<br>こんなお手伝いができます</h2>
+  <p class="section-desc">
+    以下はお手伝いできる業務の一例です。<br>
+    「こんなこと頼んでいいの？」──はい、大丈夫です。<br>
+    まずはお気軽にご相談ください。
+  </p>
+
+  <div class="examples-grid">
+    <div class="example-card">
+      <span class="example-icon">📊</span>
+      <p class="example-title">経理・帳簿の整理</p>
+      <p class="example-desc">溜まったレシートの仕訳入力、帳簿の整理をまとめて対応</p>
+    </div>
+    <div class="example-card">
+      <span class="example-icon">📄</span>
+      <p class="example-title">請求書の作成・送付</p>
+      <p class="example-desc">月末の請求書まとめて作成。テンプレートの整備もOK</p>
+    </div>
+    <div class="example-card">
+      <span class="example-icon">⌨️</span>
+      <p class="example-title">顧客リストの整理</p>
+      <p class="example-desc">名刺やメモから顧客情報をデータ化・一覧に整理</p>
+    </div>
+    <div class="example-card">
+      <span class="example-icon">📧</span>
+      <p class="example-title">メール対応の代行</p>
+      <p class="example-desc">定型の問い合わせ返信やアポイント調整を代わりに対応</p>
+    </div>
+    <div class="example-card">
+      <span class="example-icon">📁</span>
+      <p class="example-title">書類・資料の作成</p>
+      <p class="example-desc">見積書・納品書・簡単な報告書などの書類作成</p>
+    </div>
+    <div class="example-card">
+      <span class="example-icon">🔍</span>
+      <p class="example-title">リサーチ・情報収集</p>
+      <p class="example-desc">競合調査や価格調査など、ちょっとした調べものも対応</p>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="why-free-bg">
+  <div class="section fade-up">
+    <p class="section-label">Flow</p>
+    <h2>お申し込みから開始まで</h2>
+    <p class="section-desc">
+      かんたん3ステップ。最短翌日から開始できます。
+    </p>
+
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step-line">
+          <div class="flow-step-num">1</div>
+          <div class="flow-step-connector"></div>
+        </div>
+        <div class="flow-step-content">
+          <p class="flow-step-title">LINEまたはフォームからお申し込み</p>
+          <p class="flow-step-desc">
+            「無料お試し希望」とお伝えいただくだけでOKです。<br>
+            お困りの業務があれば、ざっくりで構いませんのでお書き添えください。
+          </p>
+          <span class="flow-step-time">⏱ 約1分</span>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-step-line">
+          <div class="flow-step-num">2</div>
+          <div class="flow-step-connector"></div>
+        </div>
+        <div class="flow-step-content">
+          <p class="flow-step-title">ヒアリング（LINE・メール・Zoom）</p>
+          <p class="flow-step-desc">
+            お困りごとやご要望を詳しくお伺いします。<br>
+            5時間で何をお手伝いするか、一緒に決めましょう。
+          </p>
+          <span class="flow-step-time">⏱ 約15〜30分</span>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-step-line">
+          <div class="flow-step-num">3</div>
+        </div>
+        <div class="flow-step-content">
+          <p class="flow-step-title">業務スタート！</p>
+          <p class="flow-step-desc">
+            内容が決まったら、すぐに作業を開始します。<br>
+            完了後にご報告。ご満足いただけたら有料プランもご検討ください。
+          </p>
+          <span class="flow-step-time">⏱ 最短翌日スタート</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner fade-up">
+    <h2>まずは5時間、<br>お試しください。</h2>
+    <p class="final-cta-sub">先着3名様限定・完全無料。無理な勧誘はいたしません。</p>
+
+    <div class="remaining" style="margin-bottom:1.5rem;">
+      <span class="remaining-label">残り枠</span>
+      <div class="remaining-slots">
+        <span class="slot slot-open">1</span>
+        <span class="slot slot-open">2</span>
+        <span class="slot slot-open">3</span>
+      </div>
+    </div>
+
+    <div class="cta-group">
+      <a href="https://lin.ee/Z5Im2hz" class="btn btn-line" target="_blank">
+        <span class="btn-icon">💬</span>
+        LINEで無料体験に申し込む
+      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3ZiwHXcDQriJgHRy5U0QabWpdIR-HN3Z3i_SNWlMf1f5vjg/viewform?usp=header" class="btn btn-form" target="_blank">
+        <span class="btn-icon">📝</span>
+        フォームから申し込む
+      </a>
+      <p class="cta-note">※ お試し後に自動で課金されることはありません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>
+    <a href="https://enmusubi-website-qgri.vercel.app/">縁結び事務work</a> ・
+    島根県から全国対応
+  </p>
+  <p style="margin-top:0.5rem;">© 2026 縁結び事務work. All rights reserved.</p>
+</footer>
+
+<script>
+// Scroll fade-in animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
